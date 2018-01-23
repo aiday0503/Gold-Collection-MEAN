@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Gold = mongoose.model('Gold');
 
 module.exports = {
-    show: function(req, res) {
+
+    getAll: function(req, res) {
         Gold.find({}, function(err, data) {
             if (data) {
                 res.json({ message: "Success", data: data })
@@ -21,5 +22,15 @@ module.exports = {
                 res.json({ message: "error", err: err });
             }
         })
-    }
+    },
+    // update: function(req, res) {
+    //     Gold.update({_id: req.body._id}, req.body, function(err, data) {
+    //         if (data) {
+    //             res.json({ message: "Success", data: data })
+    //         } else if (err) {
+    //             console.log(err);
+    //             res.json({ message: "error", err: err });
+    //         }
+    //     })
+    // }
 }
